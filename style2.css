@@ -49,6 +49,7 @@ nav{
     width: 100%;
     text-align: center;
     padding-top: 15px;
+    font-size: 1.1em;
 }
 
 a{
@@ -64,10 +65,8 @@ a{
 }
 
 .side-menu {
-    padding-left: 15px;
     font-size: 1.2em;
-    border-left: 3px solid #F1B6DA;
-    padding-bottom: 10px;
+    padding: 10px;
 }
 
 .side-menu li {
@@ -88,6 +87,7 @@ a{
 
 .container-howto {
     margin: 20px 7px 10px 7px;
+    font-size: 1.1em;
 }
     
 .clearfix{
@@ -251,6 +251,7 @@ textarea {
     width: 100%;
     height: auto;
     padding: 10px 50px 50px 50px;
+    font-size: 1.1em;
 }
 
 footer{
@@ -345,6 +346,8 @@ nav {
     position: fixed;
     margin-top: 50px;
     left: 25px;
+    padding-left: 15px;
+    border-left: 3px solid #F1B6DA;
 }
 
 .side-menu-left, .side-menu-right{
