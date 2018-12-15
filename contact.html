@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kontakta oss</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+        <div class="grid-container">
+    <header>
+        <nav>
+            <div class="menu-dropdown"><a class="menu-text" href="index.html">Startsida</a></div>
+            <div class="menu-dropdown">
+                <a class="menu-text" href="howto.html">Gör det själv</a>
+                <div class="menu-dd-list">
+                    <a href="howto.html#animation-name">animation-name</a>
+                    <a href="howto.html#animation-duration">animation-duration</a>
+                    <a href="howto.html#animation-delay">animation-delay</a>
+                    <a href="howto.html#animation-iteration-count">animation-iteration-count</a>
+                    <a href="howto.html#animation-direction">animation-direction</a>
+                    <a href="howto.html#animation-timing-function">animation-timing-function</a>
+                    <a href="howto.html#animation-fill-mode">animation-fill-mode</a>
+                    <a href="howto.html#animation-play-state">animation-play-state</a>
+                    <a href="howto.html#several-values">Använda flera värden</a>
+                </div>
+            </div>
+            <div class="menu-dropdown">
+                <a class="menu-text" href="about.html">Om oss</a>
+                <div class="menu-dd-list">
+                    <a href="contact.html">Kontakt</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1 class="h1-center">Kontakt</h1>
+        <form action="backend.php" method="POST" class="form">
+            Namn: <br>
+            <input type="text" name="name" id="name"><br>
+            E-mail: <br>
+            <input type="email" name="email" id="email"><br>
+            Meddelande: <br>
+            <textarea name="message" id="message" cols="30" rows="10"></textarea><br>
+            <button type="submit">Skicka</button>
+        </form>
+
+        <div class="contact-info">
+            <h2>Kontakta oss</h2>
+            <p>Tel: 08-786 40 00<br>
+               E-mail: <a href="mailto:cssanimationer@nackademin.se">cssanimationer@nackademin.se</a></p>
+            <address>
+                Nackademin <br>
+                Tomtebodavägen 3A <br>
+                171 65 Solna
+            </address>
+        </div>
+    </main>
+    <div class="clearfix"></div>
+
+    <footer>
+        <div id="footer_socmedia">
+            <a href="http://www.facebook.com" target="_blank" rel="external"><img src="./images/icon_facebook_beige.png" alt="facebook"></a>
+            <a href="http://www.instagram.com" target="_blank" rel="external"><img src="./images/icon_instagram_beige.png" alt="instagram"></a>
+            <a href="http://www.twitter.com" target="_blank" rel="external"><img src="./images/icon_twitter_beige.png" alt="twitter"></a>
+        </div>
+        
+        <div id="footer_menu">
+            <a href="howto.html">Gör det själv</a> <br>
+            <a href="about.html">Om oss</a> <br>
+        </div>
+        <address id="footer_address">
+            Nackademin <br>
+            Tomtebodavägen 3A <br>
+            171 65 Solna
+        </address>
+    </footer>
+    </div>
+</body>
+</html>

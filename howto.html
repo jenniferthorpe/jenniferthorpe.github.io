@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>How to</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+
+<body>
+    <div class="grid-container">
+        <header>
+            <nav>
+                <div class="menu-dropdown"><a class="menu-text" href="index.html">Startsida</a></div>
+                <div class="menu-dropdown">
+                    <a class="menu-text" href="howto.html">Gör det själv</a>
+                    <div class="menu-dd-list">
+                        <a href="howto.html#animation-name">animation-name</a>
+                        <a href="howto.html#animation-duration">animation-duration</a>
+                        <a href="howto.html#animation-delay">animation-delay</a>
+                        <a href="howto.html#animation-iteration-count">animation-iteration-count</a>
+                        <a href="howto.html#animation-direction">animation-direction</a>
+                        <a href="howto.html#animation-timing-function">animation-timing-function</a>
+                        <a href="howto.html#animation-fill-mode">animation-fill-mode</a>
+                        <a href="howto.html#animation-play-state">animation-play-state</a>
+                        <a href="howto.html#several-values">Använda flera värden</a>
+                    </div>
+                </div>
+                <div class="menu-dropdown">
+                    <a class="menu-text" href="about.html">Om oss</a>
+                    <div class="menu-dd-list">
+                        <a href="contact.html">Kontakt</a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <div class="left">
+            <nav class="side-menu">
+                <ul class="side-menu-left">
+                    <li><a href="#animation-name">Animation-name</a><br></li>
+                    <li><a href="#animation-duration">Animation-duration</a><br></li>
+                    <li><a href="#animation-delay">Animation-delay</a><br></li>
+                    <li><a href="#animation-iteration-count">Animation-iteration-count</a><br></li>
+                    <li><a href="#animation-direction">Animation-direction</a><br></li>
+                </ul>
+                <ul class="side-menu-right">
+                    <li><a href="#animation-timing-function">Animation-timing-function</a><br></li>
+                    <li><a href="#animation-fill-mode">Animation-fill-mode</a><br></li>
+                    <li><a href="#animation-play-state">Animation-play-state</a><br></li>
+                    <li><a href="#several-values">Använda flera värden</a><br></li>
+                </ul>
+
+            </nav>
+        </div>
+        <div class="clearfix"></div>
+        <main class="container-howto">
+            <h1>How to - Lär dig göra CSS-animeringar</h1>
+            <h2>Animerings-koden</h2>
+            <div>
+                För att skapa en animation används regeln @keyframes. Här anges vilka egenskaper och värden animeringen
+                ska ha när den börjar och när den slutar genom sektionerna ”from” och ”to”.
+                Det går även att specificera animeringen i procent, vilket möjliggör oändligt många skiftningar i
+                animeringen. Genom att ange ett procenttal mellan 0 och 100 specificeras vad som ska hända när
+                animeringen
+                är laddad till det angivna procenttalet.
+                I alla exemplen nedan använder vi:
+                <br>
+                <div class="laptop-box">
+                    @keyframes circle {
+                    <div class="codeblock"> 0% {background-color: #C42576; top: 100px; left: 0px}<br>
+                        100% {background-color: #F1B6DA; top:100px; left: 70%}</div>
+                    }
+                </div>
+                <div class="mobile-box">
+                    @keyframes circle {
+                    <div class="codeblock"> 0% {background-color: #C42576; top: 0px;}<br>
+                        100% {background-color: #F1B6DA; top: 200px;}</div>
+                    }
+                </div>
+
+            </div>
+            <h2>Element-koden</h2>
+
+            <p>För att animeringen ska fungera måste animerings-koden slutligen
+                kopplas till ett element. Detta gör man genom att ange animationens egenskaper i CSS-kodblocket för
+                elementet eller klassen. I exemplen nedan har vi t.ex. kopplat animeringarna via klassen
+                .circle som i HTML-dokumentet ligger i en div. Här skapas strukturen för animeringen
+                genom olika egenskaper, de kommer vi gå igenom nu.</p>
+
+            <h3 id="animation-name">animation-name</h3>
+            <p>animation-name, vilket är det som skrivs efter @keywords i animerings-koden,
+                anges i elementet. Det är animation-name som gör att animations-koden och
+                elementet kopplas ihop och tillsammans skapar en animering.</p>
+            <div class="animation-box">
+                <div class="ballname"></div>
+            </div>
+            <div class="animation-code">
+                <div class="laptop-box">
+                    @keyframes <span class="pink-code">circle</span> {
+                    <div class="codeblock"> 0% {background-color: #C42576; top: 100px; left: 0px}<br>
+                        100% {background-color: #F1B6DA; top:100px; left: 70%}</div>
+                    }
+                </div>
+                <div class="mobile-box">
+                    @keyframes <span class="pink-code">circle</span> {
+                    <div class="codeblock"> 0% {background-color: #C42576; top: 0px;}<br>
+                        100% {background-color: #F1B6DA; top: 200px;}</div>
+                    }
+                </div><br>
+
+                .circle {
+                <div class="codeblock">
+                    width: 70px;<br>
+                    height: 70px;<br>
+                    border-radius: 100%;<br>
+                    position: relative;<br>
+                    <span class="pink-code">animation-name: circle;<br></span>
+                    animation-duration: 3s;<br>
+                    animation-iteration-count: infinite;<br></div>
+                }
+            </div>
+            <hr>
+
+            <h3 id="animation-duration">animation-duration</h3>
+            <p>Denna egenskap anges i sekunder (s) eller millisekunder (ms) och är den
+                som bestämmer längden på animeringen.
+                <strong>Vad som är viktigt att komma ihåg är att animation-duration alltid
+                    måste specificeras eftersom defaultvärdet för denna egenskap är 0. Därför
+                    kommer animeringen inte köras om detta inte anges.</strong> </p>
+            <div class="animation-box">
+                <div class="ballduration"></div>
+            </div>
+            <div class="animation-code">
+                <br>
+                .circle {
+                <div class="codeblock">
+                    width: 70px;<br>
+                    height: 70px;<br>
+                    border-radius: 100%;<br>
+                    position: relative;<br>
+                    animation-name: circle;<br>
+                    <span class="pink-code">animation-duration: 10s;<br></span>
+                    animation-iteration-count: infinite;<br></div>
+                }
+            </div>
+            <hr>
+
+            <h3 id="animation-delay">animation-delay</h3>
+            <p>Även denna egenskap anges i sekunder (s) och millisekunder (ms).
+                Denna egenskap sätter hur lång tid som ska gå innan animationen startar.
+                Om ett negativt värde anges så kommer användaren uppleva att animationen
+                satts igång i förtid. Om till exempel värdet -2s anges så kommer alltså 2
+                sekunder att kapas från början av animationen. Hovra över cirkeln nedanför för att starta animationen.
+            </p>
+            <div class="animation-box">
+                <div class="balldelay"></div>
+            </div>
+            <div class="animation-code">
+                <br>
+                .circle {
+                <div class="codeblock">
+                    width: 70px;<br>
+                    height: 70px;<br>
+                    border-radius: 100%;<br>
+                    position: relative;<br>
+                    animation-name: circle;<br>
+                    animation-duration: 3s;<br>
+                    animation-iteration-count: infinite;<br>
+                    <span class="pink-code">animation-delay: 2s</span><br></div>
+                }
+            </div>
+            <hr>
+
+            <h3 id="animation-iteration-count">animation-iteration-count</h3>
+            <p>Genom denna egenskap anges hur många gånger animationen ska köras. Om animationen ska fortsätta köras så
+                länge sidan är öppen anges värdet ”infinite”.</p>
+            <div class="animation-box">
+                <div class="balliteration"></div>
+            </div>
+            <div class="animation-code">
+                <br>
+                .circle {
+                <div class="codeblock">
+                    width: 70px;<br>
+                    height: 70px;<br>
+                    border-radius: 100%;<br>
+                    position: relative;<br>
+                    animation-name: circle;<br>
+                    animation-duration: 3s;<br>
+                    <span class="pink-code">animation-iteration-count: infinite;</span>
+                    <br></div>
+                }
+
+            </div>
+            <hr>
+
+            <h3 id="animation-direction">animation-direction</h3>
+            <p>Med den här egenskapen sätts ordningen som animationen ska köras i,
+                alltså framlänges eller baklänges. De värden som kan anges är:</p>
+            <ul>
+                <li>normal - Spelar animationen framlänges, detta är default-värdet.</li>
+                <li>reverse - Ger en animation som spelas baklänges.</li>
+                <li>alternate - Animationen spelas först framlänges och sedan baklänges.</li>
+                <li>alternate-reverse - Animationen spelas först baklänges och sedan framlänges.</li>
+            </ul>
+            <div class="animation-box">
+                <div class="balldirection"></div>
+            </div>
+            <div class="animation-code">
+                <br>
+                .circle {
+                <div class="codeblock">
+                    width: 70px;<br>
+                    height: 70px;<br>
+                    border-radius: 100%;<br>
+                    position: relative;<br>
+                    animation-name: circle;<br>
+                    animation-duration: 3s;<br>
+                    animation-iteration-count: infinite;<br>
+                    <span class="pink-code">animation-direction:alternate </span>
+                    <br></div>
+                }
+            </div>
+            <hr>
+
+            <h3 id="animation-timing-function">animation-timing-function</h3>
+            <p>Detta är en egenskap som anger animationens fartkurva. De värden som
+                kan anges är:</p>
+            <ul>
+                <li>ease - Ger animationen en långsam start, snabbt mittenparti och långsam avslutning. Detta värde är
+                    default.</li>
+                <li>linear - Detta ger en animation som har samma fart från start till slut.</li>
+                <li>ease-in - Animationen får en långsam start.</li>
+                <li>ease-out - Ger animationen ett långsamt slut.</li>
+                <li>ease-in-out - Animationen får en långsam start och långsamt slut.</li>
+                <li>cubic-bezier(n,n,n,n) - Låter dig definiera dina egna värden med cubic-bezier-funktionen</li>
+
+            </ul>
+            <div class="animation-box">
+                <div class="balltiming"></div>
+            </div>
+
+            <div class="animation-code">
+                <br>
+                .circle {
+                <div class="codeblock">
+                    width: 70px;<br>
+                    height: 70px;<br>
+                    border-radius: 100%;<br>
+                    position: relative;<br>
+                    animation-name: circle;<br>
+                    animation-duration: 3s;<br>
+                    animation-iteration-count: infinite;<br>
+                    <span class="pink-code">animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55)</span>
+                    <br></div>
+                }
+            </div>
+            <hr>
+
+            <h3 id="animation-fill-mode">animation-fill-mode</h3>
+            <p>Med den här egenskapen anges vad som ska hända innan och efter att
+                animeringen körs. Möjliga värden är:</p>
+
+            <ul>
+                <li>none - Detta är default-värdet och innebär att ingen
+                    animations-styling kommer att tillämpas innan eller efter att
+                    animationen körs.</li>
+                <li>forwards - Med detta värde kommer elementet att behålla den
+                    styling som det hade i slutet av animationen.</li>
+                <li>backwards - Det här värdet gör att elementet får den styling
+                    som det hade i början av animeringen och behåller det under
+                    animation-delay-perioden</li>
+                <li>both - Här kommer animationen att tillämpa både forwards- och
+                    backwards-värdena vilket gör att animeringen förlängs både i början
+                    och slutet.</li>
+            </ul>
+            <div class="animation-box">
+                <div class="ballfill"></div>
+            </div>
+            <div class="animation-code">
+                <br>
+                .circle {
+                <div class="codeblock">
+                    width: 70px;<br>
+                    height: 70px;<br>
+                    border-radius: 100%;<br>
+                    position: relative;<br>
+                    animation-name: circle;<br>
+                    animation-duration: 3s;<br>
+                    <span class="pink-code">animation-fill-mode: forwards;</span>
+                    <br></div>
+                }
+            </div>
+            <hr>
+
+            <h3 id="animation-play-state">animation-play-state</h3>
+            <p>Den här egenskapen specificerar om animationen ska köras eller pausas.
+                De värden som kan anges är:</p>
+
+            <ul>
+                <li>running - Detta värde är default och innebär att animationen körs.</li>
+                <li>paused - Detta gör att animationen pausas</li>
+                <li>initial - Sätter värdet till dess default.</li>
+                <li>inherit - Gör att egenskapen får samma värde som dess förälder</li>
+            </ul>
+            <p>Hovra över cirkeln (eller tryck för mobil) för att pausa den.</p>
+            <div class="animation-box">
+                <div class="ballplay"></div>
+            </div>
+            <div class="animation-code">
+                <br>
+                .circle {
+                <div class="codeblock">
+                    width: 70px;<br>
+                    height: 70px;<br>
+                    border-radius: 100%;<br>
+                    position: relative;<br>
+                    animation-name: circle;<br>
+                    animation-duration: 10s;<br>
+                    animation-iteration-count: infinite;<br>
+                    <span class="pink-code">animation-play-state: paused</span>
+                    <br></div>
+                }
+            </div>
+            <hr>
+
+            <h3 id="several-values">Flera värden i en egenskap</h3>
+            <p>Det är även möjligt att ange flera värden för en egenskap, detta görs
+                om flera animationer ska deklareras i samma regel. <br>
+                Genom kommaseparerade värden kan du ange namnen på samtliga keyframes som
+                ska användas. <br>
+                Övriga värden kan sedan separeras på samma sätt för att ange olika värden per regel. <br>
+                Om färre värden anges än antalet regler som ska ingå så loopas värdena, alltså tilldelas det första
+                värdet igen och
+                följs sedan av de andra i kronologisk ordning tills alla regler har fått
+                ett värde.</p>
+            <hr>
+        </main>
+        <div class="clearfix"></div>
+
+        <footer>
+            <div id="footer_socmedia">
+                <a href="http://www.facebook.com" target="_blank" rel="external"><img src="./images/icon_facebook_beige.png"
+                        alt="facebook"></a>
+                <a href="http://www.instagram.com" target="_blank" rel="external"><img src="./images/icon_instagram_beige.png"
+                        alt="instagram"></a>
+                <a href="http://www.twitter.com" target="_blank" rel="external"><img src="./images/icon_twitter_beige.png"
+                        alt="twitter"></a>
+            </div>
+
+            <div id="footer_menu">
+                <a href="howto.html">Gör det själv</a> <br>
+                <a href="about.html">Om oss</a> <br>
+            </div>
+            <address id="footer_address">
+                Nackademin <br>
+                Tomtebodavägen 3A <br>
+                171 65 Solna
+            </address>
+        </footer>
+    </div>
+</body>
+
+</html>
